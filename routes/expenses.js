@@ -22,6 +22,11 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Add more routes for updating and deleting expenses as needed
+// New route for deleting an expense
+router.route('/:id').delete((req, res) => {
+    Expense.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Expense deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;
