@@ -20,9 +20,11 @@ mongoose.connect(MONGODB_URI)
 // Routes
 const expensesRouter = require('./routes/expenses');
 const categoriesRouter = require('./routes/categories');
+const analyticsRouter = require('./routes/analytics');
 
 app.use('/api/expenses', expensesRouter);
 app.use('/api/categories', categoriesRouter);
+app.use('/api/analytics', analyticsRouter);
 
 // Error handling for port in use
 const server = app.listen(PORT, () => {
